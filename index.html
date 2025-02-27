@@ -7,19 +7,39 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="icon" href="./img/icon.png">
     <title>Заметки</title>
 </head>
 
 <body>
+    <div class="overlay hidden"></div>
     <main class="main">
         <div class="container">
             <div class="title-row">
-                <h1 class="title">Заметки</h1>
-                <button class="title-btn"><img src="./img/plus.png" alt=""></button>
+                <div class="title-content">
+                    <h1 class="title">Заметки</h1>
+                    <button class="title-btn"><img src="./img/plus.png" alt=""></button>
+                </div>
+                <div class="menu">
+                    <button class="menu-btn open"><img src="./img/menu.png" alt="" class="menu-btn-img"></button>
+                    <div class="menu-content hidden">
+                        <ul class="menu-list">
+                            <li class="list-item">
+                                <button class="fav yes">
+                                    <!-- <img src="./img/check.png" alt=""> -->
+                                    <p>Избранное</p>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+            <!-- <div class="tags">
+                <button class="tag-el">#срddеда</button>
+            </div> -->
             <div class="content">
                 <div class="content-row">
-                    <!-- <div class="content-card">
+                    <div class="content-card">
                         <div class="card-row">
                             <h2>Список покупок</h2>
                             <div class="img-row">
@@ -33,7 +53,7 @@
 
                         </div>
                         <p></p>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </div>

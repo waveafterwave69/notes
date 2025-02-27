@@ -1,15 +1,66 @@
 const contentRowEl = document.querySelector('.content-row')
 const btnEl = document.querySelector('.title-btn')
+const menuBtnEl = document.querySelector('.menu-btn')
+const menuContent = document.querySelector('.menu-content')
+const favBtn = document.querySelector('.fav')
+
+menuBtnEl.addEventListener('click', function () {
+    menuContent.classList.toggle('hidden')
+    document.querySelector('.overlay').classList.toggle('hidden')
+
+    if (menuContent.classList.contains('hidden')) {
+        menuBtnEl
+            .querySelector('.menu-btn-img')
+            .setAttribute('src', './img/menu.png')
+    } else {
+        menuBtnEl
+            .querySelector('.menu-btn-img')
+            .setAttribute('src', './img/close.png')
+    }
+})
 
 // Функция для привязки обработчиков событий (вызываем после создания элемента)
 function attachEventListeners(noteElement) {
     //Принимает элемент в качестве аргумента
     const editBtn = noteElement.querySelector('.edit-btn') //Находим editBtn внутри noteElement
     const deleteBtn = noteElement.querySelector('.musor-btn') //Находим deleteBtn внутри noteElement
+    const starBtn = noteElement.querySelectorAll('.star-btn')
     const cardTitle = noteElement.querySelector('#card-title')
     const cardText = noteElement.querySelector('#card-text')
     const titleInput = noteElement.querySelector('#card-title-input')
     const textInput = noteElement.querySelector('#card-text-input')
+
+    starBtn.forEach((star) => {
+        star.addEventListener('click', function () {
+            star.classList.toggle('starr')
+            if (star.classList.contains('starr')) {
+                star.querySelector('#star').setAttribute(
+                    'src',
+                    './img/star.png'
+                )
+                star.classList.toggle('star-yes')
+                saveRow()
+            } else {
+                star.querySelector('#star').setAttribute(
+                    'src',
+                    './img/star (1).png'
+                )
+                star.classList.toggle('star-yes')
+                saveRow()
+            }
+        })
+    })
+
+    favBtn.addEventListener('click', function () {
+        favBtn.classList.toggle('yes')
+        favBtn.classList.toggle('red')
+
+        starBtn.forEach((star) => {
+            if (!star.classList.contains('star-yes')) {
+                noteElement.classList.toggle('hidden')
+            }
+        })
+    })
 
     editBtn.addEventListener('click', function (e) {
         noteElement.classList.add('visible-overflow')
@@ -24,8 +75,8 @@ function attachEventListeners(noteElement) {
         const img = editBtn.querySelector('.card-img')
 
         if (editBtn.classList.contains('check')) {
-            cardTitle.textContent = titleInput.value
-            cardText.textContent = textInput.value
+            titleInput.value = cardTitle.textContent
+            textInput.value = cardText.textContent
             img.setAttribute('src', './img/check.png')
             saveRow()
         } else {
@@ -51,21 +102,13 @@ function createNote(title, text) {
             <h2 id="card-title">${title}</h2>
             <input id="card-title-input" class="hidden" type="text" value="" placeholder="${title}">
             <div class="img-row">
-                <button class="card-btn star-btn"><img src="./img/star (1).png" alt="" class="card-img"></button>
+                <button class="card-btn star-btn"><img src="./img/star (1).png" alt="" class="card-img" id="star"></button>
                 <button class="card-btn edit-btn"><img src="./img/pencil.png" alt="" class="card-img" id="check"></button>
                 <button class="card-btn musor-btn"><img src="./img/bin.png" alt="" class="card-img"></button>
             </div>
         </div>
         <p id="card-text">${text}</p>
         <textarea id="card-text-input" class="hidden" value="" placeholder="${text}"></textarea>`
-
-    const editBtn = noteEl.querySelector('.edit-btn')
-    const deleteBtn = noteEl.querySelector('.musor-btn')
-    const cardTitle = noteEl.querySelector('#card-title')
-    const cardText = noteEl.querySelector('#card-text')
-    const titleInput = noteEl.querySelector('#card-title-input')
-    const textInput = noteEl.querySelector('#card-text-input')
-
     //Вызываем attachEventListeners сразу после создания элемента
     attachEventListeners(noteEl)
 
