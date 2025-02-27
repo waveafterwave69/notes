@@ -121,8 +121,13 @@ function createNote(title, text) {
 }
 
 btnEl.addEventListener('click', function () {
-    const el = createNote('Заголовок', 'Ваш текст')
-    contentRowEl.appendChild(el)
+    if (!favBtn.classList.contains('yes')) {
+        console.log('no')
+    } else {
+        const el = createNote('Заголовок', 'Ваш текст')
+        contentRowEl.appendChild(el)
+    }
+
     saveRow()
 })
 
