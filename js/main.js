@@ -59,6 +59,11 @@ function attachEventListeners(noteElement) {
             if (!star.classList.contains('star-yes')) {
                 noteElement.classList.toggle('hidden')
             }
+            star.addEventListener('click', function () {
+                if (!favBtn.classList.contains('star-yes')) {
+                    noteElement.classList.toggle('hidden')
+                }
+            })
         })
     })
 
