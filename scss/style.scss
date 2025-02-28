@@ -130,7 +130,7 @@ body {
 
 .title-content {
     display: flex;
-    column-gap: 10px;
+    column-gap: 7px;
 }
 
 .tag-el {
@@ -150,7 +150,6 @@ body {
     margin-top: 50px;
     margin-bottom: 40px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     & h1 {
         font-weight: 200;
@@ -160,54 +159,8 @@ body {
     & img {
         width: 39px;
     }
-}
-
-.menu {
-    display: flex;
-}
-
-.menu-btn {
-    z-index: 51;
-}
-
-.red {
-    // border-bottom: 1px solid red;
-    color: red;
-}
-
-.filters {
-    margin-bottom: 10px;
-    color: black;
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(0, 0, 0, 0.4);
-    backdrop-filter: blur(3px);
-}
-
-.menu-list {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    height: 100%;
-    width: 30%;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 1;
-    padding: 55px;
-    background-color: #fff;
-    & li {
-        color: black;
-    }
-    @media (max-width: 950px) {
-        padding: 20px;
-        width: 70%;
+    @media (max-width: 1275px) {
+        justify-content: center;
     }
 }
 
@@ -305,7 +258,6 @@ body {
     .title-row {
         margin-top: 25px;
         margin-bottom: 30px;
-        column-gap: 7px;
         & h1 {
             font-size: 34px;
         }

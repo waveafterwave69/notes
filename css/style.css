@@ -133,9 +133,9 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-column-gap: 10px;
-     -moz-column-gap: 10px;
-          column-gap: 10px;
+  -webkit-column-gap: 7px;
+     -moz-column-gap: 7px;
+          column-gap: 7px;
 }
 
 .tag-el {
@@ -159,9 +159,6 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -174,62 +171,11 @@ body {
 .title-row img {
   width: 39px;
 }
-
-.menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.menu-btn {
-  z-index: 51;
-}
-
-.red {
-  color: red;
-}
-
-.filters {
-  margin-bottom: 10px;
-  color: black;
-}
-
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  -webkit-backdrop-filter: blur(3px);
-          backdrop-filter: blur(3px);
-}
-
-.menu-list {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  position: fixed;
-  height: 100%;
-  width: 30%;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 1;
-  padding: 55px;
-  background-color: #fff;
-}
-.menu-list li {
-  color: black;
-}
-@media (max-width: 950px) {
-  .menu-list {
-    padding: 20px;
-    width: 70%;
+@media (max-width: 1275px) {
+  .title-row {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 }
 
@@ -388,9 +334,6 @@ body {
   .title-row {
     margin-top: 25px;
     margin-bottom: 30px;
-    -webkit-column-gap: 7px;
-       -moz-column-gap: 7px;
-            column-gap: 7px;
   }
   .title-row h1 {
     font-size: 34px;

@@ -1,23 +1,5 @@
 const contentRowEl = document.querySelector('.content-row')
 const btnEl = document.querySelector('.title-btn')
-const menuBtnEl = document.querySelector('.menu-btn')
-const menuContent = document.querySelector('.menu-content')
-const favBtn = document.querySelector('.fav')
-
-menuBtnEl.addEventListener('click', function () {
-    menuContent.classList.toggle('hidden')
-    document.querySelector('.overlay').classList.toggle('hidden')
-
-    if (menuContent.classList.contains('hidden')) {
-        menuBtnEl
-            .querySelector('.menu-btn-img')
-            .setAttribute('src', './img/menu.png')
-    } else {
-        menuBtnEl
-            .querySelector('.menu-btn-img')
-            .setAttribute('src', './img/close.png')
-    }
-})
 
 // Функция для привязки обработчиков событий (вызываем после создания элемента)
 function attachEventListeners(noteElement) {
@@ -39,6 +21,8 @@ function attachEventListeners(noteElement) {
                     './img/star.png'
                 )
                 star.classList.toggle('star-yes')
+                console.log(noteElement)
+                contentRowEl.prepend(noteElement)
                 saveRow()
             } else {
                 star.querySelector('#star').setAttribute(
@@ -46,24 +30,9 @@ function attachEventListeners(noteElement) {
                     './img/star (1).png'
                 )
                 star.classList.toggle('star-yes')
+                contentRowEl.append(noteElement)
                 saveRow()
             }
-        })
-    })
-
-    favBtn.addEventListener('click', function () {
-        favBtn.classList.toggle('yes')
-        favBtn.classList.toggle('red')
-
-        starBtn.forEach((star) => {
-            if (!star.classList.contains('star-yes')) {
-                noteElement.classList.toggle('hidden')
-            }
-            star.addEventListener('click', function () {
-                if (!favBtn.classList.contains('star-yes')) {
-                    noteElement.classList.toggle('hidden')
-                }
-            })
         })
     })
 
@@ -121,13 +90,8 @@ function createNote(title, text) {
 }
 
 btnEl.addEventListener('click', function () {
-    if (!favBtn.classList.contains('yes')) {
-        console.log('no')
-    } else {
-        const el = createNote('Заголовок', 'Ваш текст')
-        contentRowEl.appendChild(el)
-    }
-
+    const el = createNote('Заголовок', 'Ваш текст')
+    contentRowEl.append(el)
     saveRow()
 })
 
